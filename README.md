@@ -29,4 +29,5 @@ Hugging face
 1. High Hardware Requirements: Running large models(eg. LLaMA-2-70B) requires expensive GPUS
 2.Setup Complexity: Requires installation of dependencies like pytorch, CUDA, transformers.
 3. Lack of RLHF: Most open-source models do not have fine-tuning with human feedback, making them weaker in instruction-following
-4. Limited Multimodel Abilities: Open Models don't support image, audio, or video like GPT-4V
+4. Limited Multimodel Abilities: Open Models don't support image, audio, or video like GPT-4V.
+## Embedding:

@@ -1,34 +1,15 @@
-import os
+from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 from dotenv import load_dotenv
-from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace
-from langchain_core.messages import HumanMessage
 
-# Load environment variables
 load_dotenv()
 
-# Step 1: Create the raw LLM using HuggingFaceEndpoint with task='conversational'
 llm = HuggingFaceEndpoint(
     repo_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-    task="conversational",
-    huggingfacehub_api_token=os.getenv("HUGGINGFACEHUB_ACCESS_TOKEN")
+    task="text-generation"
 )
 
-# Step 2: Wrap the LLM in ChatHuggingFace
-chat_model = ChatHuggingFace(llm=llm)
+model = ChatHuggingFace(llm=llm)
 
-# Chat loop
-def chat():
-    print("TinyLlama Chatbot is ready! Type 'exit' to quit.\n")
-    while True:
-        user_input = input("You: ")
-        if user_input.lower() in ["exit", "quit"]:
-            print("Goodbye!")
-            break
-        try:
-            response = chat_model.invoke([HumanMessage(content=user_input)])
-            print("TinyLlama:", response.content, "\n")
-        except Exception as e:
-            print("Error:", e)
+result = model.invoke("What is the capital of India")
 
-if __name__ == "__main__":
-    chat()
+print(result.content)
