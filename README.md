@@ -21,3 +21,7 @@ Chat Models:
 Language models that are specilized for the conventational tasks. They take a sequence of messages as inputs and retun chat messages as outputs(as oppiste) to using plain text. These are traditionally newer models and used more in comparision to the LLMs.
 ## ***************************LLMs*************************
 Groq
+## Open Source Model:
+Hugging face
+1. Using HF Inference API
+2. Locally 
